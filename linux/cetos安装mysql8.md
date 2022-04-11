@@ -1,7 +1,7 @@
 # cetos安装mysql8
 安装包地址： https://dev.mysql.com/downloads/mysql/
 
-![image](images/gpMHPRKF2ufx7kIW6cFNqhgHx5rt7LiE6uEbndIOSQU.png)
+![image](../images/gpMHPRKF2ufx7kIW6cFNqhgHx5rt7LiE6uEbndIOSQU.png)
 
 1. 点击进去之后，下载好包传到服务器，或者直接在服务器下载包：
 
@@ -48,7 +48,7 @@
   ./mysqld --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --initialize
   ````
 
-![image](images/62rfspFoirKElFenRNJPaiDeFIHz5k9ygizbEI6-7xQ.png)
+![image](../images/62rfspFoirKElFenRNJPaiDeFIHz5k9ygizbEI6-7xQ.png)
 	得到初始密码，先记录下密码：DpvNz,\*dp8Py，等下用到
 
 8. 编辑mysql配置文件 `vim /etc/my.cnf`，并修改对应basedir、datadir、socket、log-error、pid-file为如下内容：
