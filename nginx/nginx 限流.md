@@ -42,7 +42,7 @@ http{
     #对用户IP进行并发计数，将计数内存区命名为perip，设置计数内存区大小为10MB （1M可以存储16000个IP信息）
     limit_conn_zone $binary_remote_addr zone=perip:10m;
     #整个location对应的请求的并发容量配置
-    limit_conn_zone $binary_name zone=perserver:10m;
+    limit_conn_zone $server_name zone=perserver:10m;
     server{
         listen 80;
         server_name localhost;
