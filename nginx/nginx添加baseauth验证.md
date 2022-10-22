@@ -27,7 +27,7 @@ yum install httpd-tools -y
 **创建授权用户和密码**
 
 ```
-htpasswd -c -d /etc/nginx/nginx/conf/pass_file username(用户名)
+htpasswd -c -d /etc/nginx/conf/pass_file username(用户名)
 然后会提示输入密码
 New password: 123456
 Re-type new password: 123456
@@ -36,7 +36,7 @@ Re-type new password: 123456
 **利用htpasswd命令修改密码**
 
 ```
-htpasswd -D /etc/nginx/nginx/conf/pass_file username
+htpasswd -D /etc//nginx/conf/pass_file username
 htpasswd -b /etc/nginx/nginx/conf/pass_file username newpassword(新密码)
 ```
 

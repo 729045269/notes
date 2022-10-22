@@ -25,6 +25,7 @@ rabbitmqctl set_user_tags root administrator
 
 
 其他命令：
+重启：service rabbitmq-server restart
 关闭： service rabbitmq-server stop
 查看状态： rabbitmqctl status
 

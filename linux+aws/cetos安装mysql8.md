@@ -1,4 +1,4 @@
-# cetos安装mysql8
+# L@kWz%4@Vt$vysFFcetos安装mysql8
 安装包地址： https://dev.mysql.com/downloads/mysql/
 
 ![image](../images/gpMHPRKF2ufx7kIW6cFNqhgHx5rt7LiE6uEbndIOSQU.png)
@@ -6,20 +6,20 @@
 1. 点击进去之后，下载好包传到服务器，或者直接在服务器下载包：
 
    ``````
-   wget https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-8.0.28-linux-glibc2.17-x86_64-minimal.tar.xz
+   wget https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-8.0.29-linux-glibc2.17-x86_64-minimal.tar.xz
    ``````
 
 2. 将压缩包解压到 `usr/local` 路径里面，命令:   
 
   `````
   cd /usr/local/
-  tar -xvf mysql-8.0.28-linux-glibc2.17-x86_64-minimal.tar.xz
+  tar -xvf mysql-8.0.29-linux-glibc2.17-x86_64-minimal.tar.xz
   `````
 
 3. 修改目录名称： 
 
    ````
-   mv mysql-8.0.28-linux-glibc2.17-x86_64-minimal mysql
+   mv mysql-8.0.29-linux-glibc2.17-x86_64-minimal mysql
    ````
 
 4. 创建mysql用户:

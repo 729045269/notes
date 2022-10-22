@@ -11,7 +11,7 @@
 ```nginx
 http{
 	...
-	#限流设置 binary_remote_addr:根据ip进行限流 contentRateLimit:缓存空间名称 10m：缓存空间（1M可以存储16000个IP信息） 				rate=2r/s:每秒允许两个请求
+	#限流设置 binary_remote_addr:根据单个客户的请求ip进行限流 contentRateLimit:缓存空间名称 10m：缓存空间（1M可以存储16000个IP信息） 				rate=2r/s:每秒允许两个请求
 	limit_req_zone $binary_remote_addr zone=contentRateLimit:10m rate=2r/s
 	
 	#站点配置
@@ -38,7 +38,9 @@ http{
 ```nginx
 http{
 	...
-
+     #限流设置 binary_remote_addr:根据单个客户的请求ip进行限流 contentRateLimit:缓存空间名称 10m：缓存空间（1M可以存储16000个IP信息） 				rate=2r/s:每秒允许两个请求
+	limit_req_zone $binary_remote_addr zone=contentRateLimit:10m rate=2r/s
+        
     #对用户IP进行并发计数，将计数内存区命名为perip，设置计数内存区大小为10MB （1M可以存储16000个IP信息）
     limit_conn_zone $binary_remote_addr zone=perip:10m;
     #整个location对应的请求的并发容量配置
@@ -47,6 +49,9 @@ http{
         listen 80;
         server_name localhost;
         location /api {
+            
+            limit_req zone=contentRateLimit burst=4 nodelay;
+            
             #个人IP限流配置, 单个客户端ip与服务器的连接数限制为3
             limit_conn perip 3;
             #当前location的总并发配置,总并发数100

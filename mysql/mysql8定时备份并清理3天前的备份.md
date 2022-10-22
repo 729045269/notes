@@ -15,7 +15,7 @@ backupDir=/home/wwwroot/mysql-backup
 
 mysqlUsername=root
 
-# 数据库密码
+# 数据库密码 如果密码有特殊字符（！@#￥%……&），需要换一个没有特殊字符的密码，否则会提示错误：mysqldump: Got error: 1045: Access denied for user 'r'@'localhost' (using password: YES) when trying to connect
 
 mysqlPwd=123456
 

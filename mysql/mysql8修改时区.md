@@ -6,3 +6,9 @@
 default-time_zone = '+8:00'
 ```
 
+查看时区
+
+```
+show variables like'%time_zone';
+```
+
