@@ -55,6 +55,7 @@
 
 ```Plain Text
 [mysqld]
+#如果mysql安装目录不是/usr/local/mysql，则必须加上basedir这个配置：basedir=/xxx/xxx/mysql
 basedir=/usr/local/mysql
 datadir=/usr/local/mysql/data
 socket=/tmp/mysql.sock
