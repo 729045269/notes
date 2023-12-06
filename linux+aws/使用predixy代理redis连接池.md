@@ -36,7 +36,7 @@ Include cluster.conf #把这个的注释解除
 #Include try.conf #将这个注释
 ```
 
- 	如果需要添加密码，则修改 `/usr/local/`predixy/conf 目录下auth.conf 文件，predixy代理连接密码为 #123456789#
+ 	如果需要添加密码，则修改 /usr/local/predixy/conf 目录下auth.conf 文件，predixy代理连接密码为 #123456789#
 
 ```
 Authority {
@@ -358,14 +358,12 @@ Include latency.conf
 1. 创建一个新的systemd服务单元： 使用文本编辑器（如`vi`或`nano`）创建一个新的service文件，比如`predixy.service`：
 
    ```
-   bashCopy code
    sudo nano /etc/systemd/system/predixy.service
    ```
-
+   
 2. 将以下内容粘贴到`predixy.service`文件中：
 
    ```
-   iniCopy code[Unit]
    Description=Predixy Service
    After=network.target
    
@@ -376,34 +374,31 @@ Include latency.conf
    [Install]
    WantedBy=multi-user.target
    ```
-
+   
    这个配置指定了服务的描述、启动时依赖的目标（network.target，表示在网络服务启动后再启动该服务）、服务的类型（simple表示脚本不会派生子进程）和执行的命令。
-
+   
 3. 保存并关闭文件（在`nano`中按`Ctrl + X`，然后按`Y`保存）。
 
 4. 启用该服务： 运行以下命令启用服务并使其在开机时自动执行：
 
    ```
-   bashCopy code
    sudo systemctl enable predixy
    ```
-
+   
 5. 启动服务： 运行以下命令来启动该服务：
 
    ```
-   sqlCopy code
    sudo systemctl start predixy
    ```
-
+   
    现在，Predixy服务应该已经在系统启动时自动执行了。
-
+   
 6. 验证服务状态（可选）： 如果想确认服务是否正在运行，可以运行以下命令查看服务状态：
 
    ```
-   luaCopy code
    sudo systemctl status predixy
    ```
-
-   如果一切顺利，你应该能够看到服务正在运行的状态信息。
+   
+如果一切顺利，你应该能够看到服务正在运行的状态信息。
 
 现在，当你重启CentOS系统时，Predixy服务应该会自动启动并执行你指定的脚本

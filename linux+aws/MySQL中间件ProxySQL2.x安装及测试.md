@@ -3,12 +3,12 @@
 1.下载安装(Centos8)
 
 ```
-$wget https://github.com/sysown/proxysql/releases/download/v2.5.4/proxysql-2.5.4-1-centos8-clang.x86_64.rpm
+$wget https://github.com/sysown/proxysql/releases/download/v2.5.5/proxysql-2.5.5-1-centos8-clang.x86_64.rpm
 #安装
-$rpm -ivh proxysql-2.5.4-1-centos8-clang.x86_64.rpm 
+$rpm -ivh proxysql-2.5.5-1-centos8-clang.x86_64.rpm 
 #查看版本
 $proxysql --version
-	ProxySQL version 2.5.4-1-g877cab1, codename Truls
+	ProxySQL version 2.5.5-1-g877cab1, codename Truls
 ```
 
 
@@ -40,7 +40,7 @@ service docker start
 #开机自启
 chkconfig docker on
 #将当前用户添加到 docker 用户组：为了让当前用户可以运行 Docker 命令，运行以下命令将当前用户添加到 docker 用户组。请确保将 "your_username" 替换为你当前登录用户的用户名。
-usermod -aG docker root
+usermod -aG y root
 #查看版本
 docker --version
 ```
@@ -61,6 +61,7 @@ docker pull proxysql/proxysql
 datadir="/var/lib/proxysql"
 #错误日志配置
 errorlog="/var/lib/proxysql/proxysql.log" 
+
 admin_variables=
 {
 	admin_credentials="admin:admin;radmin:radmin"
@@ -154,7 +155,7 @@ INSERT INTO mysql_users(username, password, default_hostgroup) VALUES ('root', '
 ```
 #(完整案例：CREATE USER 'monitor'@'192.%' IDENTIFIED WITH mysql_native_password BY '123456';)
 CREATE USER 'monitor'@'替换为 ProxySQL 服务器的 IP 地址或主机名' IDENTIFIED BY '替换为你想要设置的密码'; 
-GRANT SELECT, REPLICATION CLIENT ON *.* TO 'proxysql_monitor'@'proxy_sql_ip'; (完整案例：GRANT SELECT, REPLICATION CLIENT ON *.* TO 'monitor'@'192.%';)
+GRANT SELECT, REPLICATION CLIENT ON *.* TO 'monitor'@'proxy_sql_ip'; (完整案例：GRANT SELECT, REPLICATION CLIENT ON *.* TO 'monitor'@'192.%';)
 FLUSH PRIVILEGES;
 ```
 
